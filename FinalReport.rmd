@@ -12,8 +12,6 @@ abac <-read.csv(file="abacavirinol.csv",header=TRUE)
 Female <- filter(abac,sex=="F")
 Male <- filter(abac,sex=="M")
 Druggies <- filter(abac, Ivdrug=="user")
-```
-```{r}
 LBGTguys = filter(abac,LBGT=="yes")
 ```
 
@@ -65,14 +63,14 @@ rowPerc(tab = results)
 chisqtestGC(results, graph = TRUE)
 ```
 
-  We reject the null hypothesis because the p-value is .0168.  
+  I reject the null hypothesis because the p-value is .0168.  
 
 
 ```{r}
 fisher.test(results)
 ```
 
-  We reject the null hypothesis because the p-value is .01634.   
+  I reject the null hypothesis because the p-value is .01634.   
   
   
 ### Graphical Descriptive Results
@@ -84,6 +82,8 @@ fisher.test(results)
 results <- xtabs(~infected+treatment,data=Druggies)
 barchartGC(results,type = "percent")
 ```
+
+  The drug treatment works better than the placebo. Approximately 25% of drug users got aids while receiving the treatment pill and about 75% got aids while taking the placebo pill.  
 
 ### Numerical Descriptive Results
 
@@ -95,6 +95,8 @@ colPerc(table1)
 rowPerc(table1)
 ```
 
+  25.64e% of selected drug users got aids while taking the treatment pill and 74.36% got aids while taking the placebo pill. 
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
@@ -104,10 +106,13 @@ chisq.test(table1)
 chisqtestGC(table1)
 ```
 
+  I reject the null hypothesis because the p-value is .0227.  
+
 ```{r}
 fisher.test(table1)
 ```
 
+  I accept the null hypothesis because the p-value is .4108.  
 
 ### Graphical Descriptive Results
 
@@ -117,6 +122,8 @@ fisher.test(table1)
 results <- xtabs(~infected+treatment,data=Female)
 barchartGC(results,type = "percent")
 ```
+
+  The treatment pill had the opposite effect when it came to females. More females got aids while taking the tteatment pill than those taking the placebo pill.  
 
 ### Numerical Descriptive Results
 
@@ -128,6 +135,8 @@ colPerc(table2)
 rowPerc(table2)
 ```
 
+  59.3% of females contracted aids while receiving the tteatment pill and 48.47% contracted aids while taking the placebo pill. 
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
@@ -137,9 +146,13 @@ chisq.test(table2)
 chisqtestGC(table2)
 ```
 
+  I accept the null hypothesis because the p-value is .062.  
+
 ```{r}
 fisher.test(table2)
 ```
+
+  I reject the null hypothesis because the p-value is .04911.  
 
 ### Graphical Descriptive Results
 
@@ -149,6 +162,8 @@ fisher.test(table2)
 results <- xtabs(~infected+treatment,data=LBGTguys)
 barchartGC(results,type = "percent")
 ```
+
+  The treatment had the opposite effect on LBGT guys. More LBGT guys contracted aids while on the treatment pill than LBGT guys who took the placebo pill.  
 
 ### Numerical Descriptive Results
 
@@ -160,6 +175,8 @@ colPerc(table3)
 rowPerc(table3)
 ```
 
+  The number of LBGT guys who contracted aids that took the treatment pill was more than double of those who took the placebo. 68.97% of LBGT guys got aids while receiving the treatment pill and 31.03% of LBGT guys contracted aids while on the placebo pill.  
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
@@ -169,10 +186,13 @@ chisq.test(table3)
 chisqtestGC(table3)
 ```
 
+  I accept the null hypothesis because the p-value is .0743.
+
 ```{r}
 fisher.test(table3)
 ```
 
+  I accept the null hypothesis because the p-value is .05698. 
 
 ### Graphical Descriptive Results
 
@@ -182,6 +202,8 @@ fisher.test(table3)
 results <- xtabs(~infected+treatment,data=Male)
 barchartGC(results,type = "percent")
 ```
+
+  The treatment pill had the intended effect. Less males got aids while taking the treatment pill than those who took the placebo.  
 
 ### Numerical Descriptive Results
 
@@ -193,6 +215,8 @@ colPerc(table4)
 rowPerc(table4)
 ```
 
+  The amount of males who contracted aids while taking the placebo is more than double of those who contracted it while on the treatment pill. 30.46% contracted aids while on the treatment drug and 69.54% contracted aids while taking the placebo pill.  
+
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
@@ -202,119 +226,18 @@ chisq.test(table4)
 chisqtestGC(table4)
 ```
 
+  I reject the null hypothesis because the p-value is 6.052.  
+
 ```{r}
 fisher.test(table4)
 ```
 
+  I reject the null hypothesis because the p-value is 4.352.  
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+
+  The tests are independent and do not influence each other.  
+  
 =======
----
-title: "Abacavirinol"
-author: "Put your name here!"
-date: "put the date here"
-output: html_document
----
-
-```{r include=FALSE,echo=FALSE}
-require(tidyverse)
-require(tigerstats)
-abac <-read.csv(file="abacavirinol.csv",header=TRUE)
-Female <- filter(abac,sex=="F")
-Male <- filter(abac,sex=="M")
-Druggies <- filter(abac, Ivdrug=="user")
-```
-```{r}
-LBGTguys = filter(abac,LBGT=="yes")
-```
-
-
-
-# Introduction
-
-<!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
-
-A new  preventative aides (abacavirinol) is under test in clinical trials. Analyze the effectiveness of this drug across the board. Consider population subgroups by gender, drug use, and sexual orientation. Finish this!
-
-# Methods
-
-<!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
-
-#Results
-
-<!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
-
-## Descriptive Results
-
-### Graphical Descriptive Results
-
-<!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
-
-```{r}
-results <- xtabs(~infected+treatment,data=abac)
-barchartGC(results,type = "percent")
-```
-
-```{r}
-colPerc(tab = results)
-rowPerc(tab = results)
-```
-
-
-
-```{r}
-results <- xtabs(~infected+treatment,data=Druggies)
-barchartGC(results,type = "percent")
-```
-
-
-
-```{r}
-results <- xtabs(~infected+treatment,data=Female)
-barchartGC(results,type = "percent")
-```
-
-
-```{r}
-results <- xtabs(~infected+treatment,data=LBGTguys)
-barchartGC(results,type = "percent")
-```
-
-```{r}
-results <- xtabs(~infected+treatment,data=Male)
-barchartGC(results,type = "percent")
-```
-
-
-
-
-### Numerical Descriptive Results
-
-<!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
-
-```{r}
-colPerc(tab = results)
-rowPerc(tab = results)
-```
-
-
-
-## Inferential Results
-
-<!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
-
-```{r}
-chisqtestGC(results, graph = TRUE)
-```
-
-```{r}
-fisher.test(results)
-```
-
-
-# Discussion and Conclusion
-
-<!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
-
