@@ -95,7 +95,7 @@ colPerc(table1)
 rowPerc(table1)
 ```
 
-  25.64e% of selected drug users got aids while taking the treatment pill and 74.36% got aids while taking the placebo pill. 
+  25.64% of selected drug users got aids while taking the treatment pill and 74.36% got aids while taking the placebo pill. 
 
 ## Inferential Results
 
@@ -239,5 +239,4 @@ fisher.test(table4)
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
   The tests are independent and do not influence each other.  
-  
 =======
